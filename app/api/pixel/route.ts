@@ -7,12 +7,16 @@ export async function GET(req: NextRequest) {
   const referrer = req.headers.get("referer");
 
   try {
-    await supabase.from("portfolio_stats").insert([
-      { 
-        event_type: "github_view", 
-        metadata: { userAgent, referrer } 
-      }
-    ]);
+    if (supabase) {
+      await supabase.from("portfolio_stats").insert([
+        { 
+          event_type: "github_view", 
+          metadata: { userAgent, referrer } 
+        }
+      ]);
+    } else {
+      console.warn("Supabase client not initialized. Skipping tracking.");
+    }
   } catch (error) {
     console.error("Tracking Error:", error);
   }

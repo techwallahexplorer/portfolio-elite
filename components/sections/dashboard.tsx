@@ -58,19 +58,24 @@ export const GithubDashboard = () => {
       });
 
     // Realtime listener for the pixel hits
-    const channel = supabase
-      .channel("realtime-stats")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "portfolio_stats" },
-        () => {
-          setLiveViews((prev) => prev + 1);
-        }
-      )
-      .subscribe();
+    let channel: any = null;
+    if (supabase) {
+      channel = supabase
+        .channel("realtime-stats")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "portfolio_stats" },
+          () => {
+            setLiveViews((prev) => prev + 1);
+          }
+        )
+        .subscribe();
+    }
 
     return () => {
-      supabase.removeChannel(channel);
+      if (supabase && channel) {
+        supabase.removeChannel(channel);
+      }
     };
   }, []);
 
