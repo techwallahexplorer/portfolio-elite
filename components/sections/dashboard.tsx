@@ -58,7 +58,7 @@ export const GithubDashboard = () => {
       });
 
     // Realtime listener for the pixel hits
-    let channel: any = null;
+    let channel: import("@supabase/supabase-js").RealtimeChannel | null = null;
     if (supabase) {
       channel = supabase
         .channel("realtime-stats")
