@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getGithubProfile, getGithubRepos, getGithubContributions } from "@/lib/github";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const [profile, repos, contributions] = await Promise.all([
