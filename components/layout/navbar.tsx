@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Terminal, Code2, Globe, Mail } from "lucide-react";
+import { Terminal } from "lucide-react";
 
 const navItems = [
   { name: "Projects", href: "#projects" },

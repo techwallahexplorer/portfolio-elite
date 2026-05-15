@@ -2,12 +2,49 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Star, GitBranch, Terminal, Globe, User, Code2, ArrowUpRight } from "lucide-react";
+import { Star, GitBranch, Terminal, ArrowUpRight } from "lucide-react";
 
 import { supabase } from "@/lib/supabase";
 
+interface GithubProfile {
+  avatar_url: string;
+  name: string;
+  login: string;
+  bio: string;
+  followers: number;
+  public_repos: number;
+}
+
+interface GithubRepo {
+  id: number;
+  name: string;
+  html_url: string;
+  stargazers_count: number;
+  language: string;
+}
+
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
+
+interface ContributionCalendar {
+  totalContributions: number;
+  weeks: ContributionWeek[];
+}
+
+interface GithubData {
+  profile: GithubProfile;
+  repos: GithubRepo[];
+  contributions: ContributionCalendar;
+}
+
 export const GithubDashboard = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<GithubData | null>(null);
   const [loading, setLoading] = useState(true);
   const [liveViews, setLiveViews] = useState(0);
 
@@ -117,9 +154,9 @@ export const GithubDashboard = () => {
           </div>
 
           <div className="flex-1 flex items-end gap-1.5 overflow-x-auto pb-4 custom-scrollbar min-h-[150px]">
-            {contributions?.weeks?.slice(-16).map((week: any, i: number) => (
+            {contributions?.weeks?.slice(-16).map((week, i) => (
               <div key={i} className="flex flex-col gap-1.5 flex-1 min-w-[12px]">
-                {week.contributionDays.map((day: any, j: number) => {
+                {week.contributionDays.map((day, j) => {
                   const opacity = day.contributionCount > 0 
                     ? Math.min(0.3 + (day.contributionCount * 0.15), 1)
                     : 0.05;
@@ -175,7 +212,7 @@ export const GithubDashboard = () => {
             Recent Artifacts
           </h4>
           <div className="space-y-6">
-            {repos.slice(0, 3).map((repo: any) => (
+            {repos.slice(0, 3).map((repo) => (
               <a 
                 key={repo.id} 
                 href={repo.html_url} 

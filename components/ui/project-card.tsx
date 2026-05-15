@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Code2, ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   title: string;

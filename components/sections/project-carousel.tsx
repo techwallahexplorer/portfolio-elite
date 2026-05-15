@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Code2, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,6 @@ interface ProjectCarouselProps {
 
 export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
   const [index, setIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const next = () => {
     setIndex((prev) => (prev + 1) % projects.length);
