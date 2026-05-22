@@ -36,9 +36,8 @@ export const Hero = () => {
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mb-12 leading-relaxed">
-          Engineering high-performance systems and AI-native products. 
-          Specializing in distributed architectures, healthcare tech, and 
-          premium UI/UX engineering.
+          Final-year CSE student focused on backend software engineering,
+          applied AI projects, and practical healthcare/accessibility tools.
         </p>
 
         {/* Actions */}

@@ -1,13 +1,11 @@
 import axios from "axios";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const USERNAME = process.env.GITHUB_USERNAME;
+const USERNAME = process.env.GITHUB_USERNAME || "techwallahexplorer";
 
 const githubApi = axios.create({
   baseURL: "https://api.github.com",
-  headers: {
-    Authorization: `Bearer ${GITHUB_TOKEN}`,
-  },
+  headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : undefined,
 });
 
 export const getGithubProfile = async () => {
@@ -42,7 +40,7 @@ export const getGithubContributions = async () => {
   const { data } = await axios.post(
     "https://api.github.com/graphql",
     { query, variables: { username: USERNAME } },
-    { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
+    { headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : undefined }
   );
 
   if (!data?.data?.user) {

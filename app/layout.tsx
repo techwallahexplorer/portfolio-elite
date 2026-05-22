@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jagjeet Singh | Software Engineer",
-  description: "Engineering high-performance systems and AI-native products. Engineering Portfolio of Jagjeet Singh.",
+  description: "Backend-focused software engineering portfolio of Jagjeet Singh.",
 };
 
 export default function RootLayout({

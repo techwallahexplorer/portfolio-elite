@@ -17,9 +17,8 @@ export const Footer = () => {
             </span>
           </div>
           <p className="text-foreground/40 text-sm max-w-sm mb-8 leading-relaxed">
-            Software Engineer specializing in AI-native architectures 
-            and premium system design. Committed to technical depth, 
-            performance, and architectural integrity.
+            Final-year CSE student focused on backend software engineering,
+            applied AI projects, and healthcare/accessibility tools.
           </p>
           <div className="flex gap-4">
             <a href="https://github.com/techwallahexplorer" target="_blank" rel="noreferrer" className="p-2 glass rounded-lg text-foreground/60 hover:text-white transition-all" title="GitHub">
@@ -61,7 +60,7 @@ export const Footer = () => {
       </div>
 
       <div className="container mx-auto px-6 mt-24 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-foreground/20 font-mono uppercase tracking-widest">
-        <span>© 2026 Engineered by Jagjeet Singh</span>
+        <span>© 2026 Jagjeet Singh</span>
         <div className="flex gap-8">
           <span>Built with Next.js 15</span>
           <span>Deployed on Vercel</span>

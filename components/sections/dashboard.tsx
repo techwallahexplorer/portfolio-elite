@@ -114,7 +114,7 @@ export const GithubDashboard = () => {
             </div>
             <h3 className="font-bold text-xl mb-1">{profile.name || "TechWallahExplorer"}</h3>
             <p className="text-xs text-foreground/40 mb-4 font-mono">@{profile.login}</p>
-            <p className="text-sm text-foreground/60 mb-6 leading-relaxed px-2">{profile.bio || "Engineering high-performance systems and AI-native products."}</p>
+            <p className="text-sm text-foreground/60 mb-6 leading-relaxed px-2">{profile.bio || "Backend-focused CSE student building applied AI and software projects."}</p>
           </div>
           
           <div className="grid grid-cols-2 gap-4 w-full mb-6">
